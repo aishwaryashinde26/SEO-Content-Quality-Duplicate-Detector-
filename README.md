@@ -8,10 +8,49 @@ This project implements a content analysis system that evaluates the SEO quality
 ```bash
 git clone https://github.com/aishwaryashinde26/SEO-Content-Quality-Duplicate-Detector-
 cd seo-content-detector
+``` 
 
 2. Clone the repository:
 ```bash
 pip install -r requirements.txt
+```
 
+3. Open the main notebook:
+```bash
+seo-content-detector/notebooks/seo_pipeline.ipynb
+```
 
+## Quick Start
+1.Load the provided dataset: data/data.csv (URLs + HTML content).
+2. Run the notebook end-to-end to extract content, compute features, detect duplicates, and train the quality model.
+3. Use the analyze_url(url) function in the notebook to test live pages:
+```bash
+result = analyze_url("https://en.wikipedia.org/wiki/Main_Page")
+print(result)
+```
+
+## Key Decisions
+* Libraries: BeautifulSoup for HTML parsing, textstat for readability, scikit-learn for ML and similarity, nltk for sentence tokenization. Chosen for simplicity, speed, and reliability.
+* HTML Parsing: Extracted <title> and main text, removed scripts/styles, used modular extract_from_html() for reuse.
+* Similarity Threshold: 0.75 for cosine similarity to flag near-duplicates, balancing precision and recall.
+* Model Selection: Random Forest trained on word count, sentence count, and readability; chosen for interpretability and robust performance.
+
+## Results Summary
+
+Model Performance:
+
+              Precision  Recall  F1-Score  Support
+Low Quality     1.00      0.93      0.97        15
+Medium Quality  0.78      0.88      0.82         8
+High Quality    0.50      0.50      0.50         2
+Overall Accuracy: 0.88
+F1-Score (weighted): 0.88
+
+* Duplicate Detection: Identified multiple near-duplicate pages with cosine similarity > 0.75; thin content pages flagged if word count < 500.
+* Sample Quality Scores: Use analyze_url() to check live pages; returns word count, readability, quality label, and similar pages.
+
+## Limitations
+* Small dataset (60–70 pages) limits generalization; model may underperform on unseen content types.
+* TF-IDF embeddings are sparse; using sentence transformers could improve duplicate detection.
+* Readability scores may be negative or low for technical content; model relies on synthetic labeling rules.
 
