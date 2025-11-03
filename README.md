@@ -49,8 +49,20 @@ Overall Accuracy: 0.88
 F1-Score (weighted): 0.88
 ```
 
-* **Duplicate Detection**: Identified multiple near-duplicate pages with cosine similarity > 0.75; thin content pages flagged if word count < 500.
+* **Duplicate Detection**: Identified multiple near-duplicate pages with cosine similarity >= 0.80; thin content pages flagged if word count < 500. Total duplicate pairs found: 3
 * **Sample Quality Scores**: Use analyze_url() to check live pages; returns word count, readability, quality label, and similar pages.
+# Sample quality score output from analyze_url()
+```text
+{
+  "url": "https://en.wikipedia.org/wiki/Main_Page",
+  "word_count": 1971,
+  "sentence_count": 53,
+  "readability": 35.344451570758395,
+  "is_thin": false,
+  "quality_label": "Medium Quality",
+  "similar_to": []
+}
+```
 
 ## Limitations
 * Small dataset (60–70 pages) limits generalization; model may underperform on unseen content types.
