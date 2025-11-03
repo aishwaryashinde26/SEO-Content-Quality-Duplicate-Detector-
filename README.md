@@ -6,11 +6,11 @@ This project implements a content analysis system that evaluates the SEO quality
 ## Setup Instructions
 1. Clone the repository:
 ```bash
-git clone https://github.com/aishwaryashinde26/SEO-Content-Quality-Duplicate-Detector-
+git clone https://github.com/aishwaryashinde26/SEO-Content-Quality-Duplicate-Detector-.git
 cd seo-content-detector
 ``` 
 
-2. Clone the repository:
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
