@@ -51,7 +51,6 @@ F1-Score (weighted): 0.88
 
 * **Duplicate Detection**: Identified multiple near-duplicate pages with cosine similarity >= 0.80; thin content pages flagged if word count < 500. Total duplicate pairs found: 3
 * **Sample Quality Scores**: Use analyze_url() to check live pages; returns word count, readability, quality label, and similar pages.
-# Sample quality score output from analyze_url()
 ```text
 {
   "url": "https://en.wikipedia.org/wiki/Main_Page",
