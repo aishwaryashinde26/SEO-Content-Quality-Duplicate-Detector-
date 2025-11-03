@@ -11,5 +11,4 @@ __pycache__/
 # Data outputs
 data_outputs/
 models/
-
 *.pkl 
