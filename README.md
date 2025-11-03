@@ -21,7 +21,7 @@ seo-content-detector/notebooks/seo_pipeline.ipynb
 ```
 
 ## Quick Start
-1.Load the provided dataset: data/data.csv (URLs + HTML content).
+1.Load the provided dataset: data/data.csv (URLs + HTML content).<br>
 2. Run the notebook end-to-end to extract content, compute features, detect duplicates, and train the quality model.
 3. Use the analyze_url(url) function in the notebook to test live pages:
 ```bash
